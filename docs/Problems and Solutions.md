@@ -1,5 +1,7 @@
 # Problems and Solutions
 
+
+
 ## Problem: Cannot boot CentOS, Rocky Linux, Debian on VirtualBox
 
 - **Cause:** VirtualBox has compatibility issues with Ryzen 7800X3D CPU; some virtualization features may not work correctly.
@@ -56,5 +58,3 @@
   sudo nmcli con down static-ens33
   sudo nmcli con up static-ens33
   ```
-
-
