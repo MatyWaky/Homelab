@@ -17,8 +17,6 @@ Each VM has:
 - 2 CPUs  
 - 50 GB disk space  
 
----
-
 ## srv-ops01
 
 - Operating system: Ubuntu Server 24.04.3 LTS (no GUI) 
@@ -27,8 +25,6 @@ Each VM has:
   - **enp0s3** – NAT – DHCP – Internet access  
   - **enp0s8** – Internal Network – `192.168.50.11/24` – VirtualBox LAN  
   - **enp0s9** – Host-only/Isolated – `192.168.60.11/24` – VMware LAN  
-
----
 
 ## srv-web01
 
@@ -39,8 +35,6 @@ Each VM has:
     - Gateway: `192.168.50.11`  
     - DNS: `[8.8.8.8, 1.1.1.1]`  
 
----
-
 ## srv-db01
 
 - Operating system: Debian as Server 13 (with Gnome)  
@@ -50,8 +44,6 @@ Each VM has:
     - Gateway: `192.168.60.11`  
     - DNS: `[8.8.8.8, 1.1.1.1]`  
 
----
-
 ## srv-mon01
 
 - Operating system: CentOS Server 10 (no GUI)  
@@ -60,8 +52,6 @@ Each VM has:
   - **ens33** – Internal Network – `192.168.60.30/24`  
     - Gateway: `192.168.60.11`  
     - DNS: `[8.8.8.8, 1.1.1.1]`  
-
----
 
 ## host-01
 
