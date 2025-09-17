@@ -23,7 +23,7 @@ network:
   ethernets:
     enp0s3:
       addresses:
-        - 192.168.50.10/24
+        - 192.168.50.20/24
       routes:
         - to: 0.0.0.0/0
           via: 192.168.50.11
@@ -63,5 +63,3 @@ ip route
 ```bash
 resolvectl status
 ```
-
-
