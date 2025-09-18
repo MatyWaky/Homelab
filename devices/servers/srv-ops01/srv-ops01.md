@@ -3,6 +3,7 @@
 - [Hostname](#hostname)  
 - [Network Interfaces](#network-interfaces)  
 - [Routing](#routing)  
+- [DHCP Server](#DHCP-Server)
 
 ---
 
@@ -126,4 +127,57 @@ sudo iptables -A FORWARD -i enp0s8 -o enp0s9 -j ACCEPT
 sudo iptables -A FORWARD -i enp0s9 -o enp0s8 -j ACCEPT
 sudo iptables -L -n -v
 sudo netfilter-persistent save
+```
+
+## DHCP-Server
+
+- Install ISC DHCP server:
+
+```bash
+sudo apt update
+sudo apt install isc-dhcp-server -y
+```
+
+- Specify interfaces for DHCP server:
+
+```bash
+sudo vim /etc/default/isc-dhcp-server
+# set INTERFACESv4="enp0s8 enp0s9"
+```
+
+- Configure DHCP server:
+
+```bash
+sudo vim /etc/dhcp/dhcpd.conf
+```
+
+- Configuration for both internal networks:
+
+```textile
+# subnet for VirtualBox network
+subnet 192.168.50.0 netmask 255.255.255.0 {
+  range 192.168.50.150 192.168.50.200;
+  option routers 192.168.50.11;
+  option domain-name-servers 8.8.8.8, 1.1.1.1;
+}
+
+# subnet for VMware network
+subnet 192.168.60.0 netmask 255.255.255.0 {
+  range 192.168.60.150 192.168.60.200;
+  option routers 192.168.60.11;
+  option domain-name-servers 8.8.8.8, 1.1.1.1;
+}
+```
+
+- Start and enable DHCP server:
+
+```bash
+sudo systemctl restart isc-dhcp-server
+sudo systemctl status isc-dhcp-server
+```
+
+- Check logs:
+
+```bash
+journalctl -u isc-dhcp-server -f
 ```

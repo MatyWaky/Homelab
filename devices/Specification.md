@@ -6,6 +6,7 @@
 - [srv-db01](#srv-db01)  
 - [srv-mon01](#srv-mon01)  
 - [host-01](#host-01)  
+- [host-03](#host-03)
 
 ---
 
@@ -62,4 +63,12 @@ Each VM has:
     - Gateway: `192.168.60.11`  
     - DNS: `[8.8.8.8, 1.1.1.1]`  
 
+## host-03
 
+- Operating system: openSUSE (desktop host) 15.6 (with Plasma5)
+- Hypervisor: VMware
+- Network interfaces:
+  - **eth0** – Internal Network – DHCP
+    - IP:`192.168.60.150/24`
+    - Gateway: `192.168.60.11`
+    - DNS: `[8.8.8.8, 1.1.1.1]`
