@@ -4,6 +4,7 @@
 - [Network Interface Configuration](#network-interface-configuration)
 - [System Information](#system-information)
 - [Network Information](#network-information)
+-  [Website deployment](#website-deployment)
 
 ---
 
@@ -84,4 +85,31 @@ ip route
 
 ```bash
 cat /etc/resolv.conf
+```
+
+## Website deployment
+
+- Move website to Nginx web root:
+
+```bash
+rsync -avz --omit-dir-times homelab-webapp/ \
+homelab-deployer@192.168.50.20:/var/www/html/homelab-webapp
+```
+
+- Connect via SSH:
+
+```bash
+ssh homelab-deployer@192.168.50.20
+```
+
+- Change permissions:
+
+```bash
+chmod -R 755 /var/www/html/homelab-webapp
+```
+
+- Open a browser and navigate to:
+
+```url
+http://192.168.50.20
 ```
